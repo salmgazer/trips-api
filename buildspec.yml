@@ -10,19 +10,19 @@ phases:
       - apt-get update -y
 
       # install openssh
-      - apt-get install openssh-client -y
+      #- apt-get install openssh-client -y
 
       # download and prepare ssh key
-      - mkdir -p ~/.ssh
-      - aws s3 cp s3://rb-encrypted-keys/id_rsa.git ~/.ssh/ --region us-east-2a
-      - chmod 600 ~/.ssh/id_rsa.git
+      #- mkdir -p ~/.ssh
+      #- aws s3 cp s3://rb-encrypted-keys/id_rsa.git ~/.ssh/ --region us-east-2a
+      #- chmod 600 ~/.ssh/id_rsa.git
 
       # start ssh-agent and add the key
-      - eval "$(ssh-agent -s)"
-      - ssh-add ~/.ssh/id_rsa.git
+      #- eval "$(ssh-agent -s)"
+      #- ssh-add ~/.ssh/id_rsa.git
 
       # connect to github to allow its servers
-      - ssh -oStrictHostKeyChecking=no git@github.com || true
+      #- ssh -oStrictHostKeyChecking=no git@github.com || true
 
       # Install dependencies needed for running tests // npm ci uses versions from package-lock.json
       - npm ci
