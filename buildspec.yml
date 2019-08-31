@@ -48,9 +48,6 @@ phases:
 
       # Install runtime dependencies
       - npm ci --production
-
-      # Run migrations
-      - npm run migrate
 artifacts:
   type: zip
   files:
