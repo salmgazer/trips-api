@@ -1,0 +1,68 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+    commands:
+      # build image is ubuntu
+      # update packages
+      - apt-get update -y
+
+      # install openssh
+      - apt-get install openssh-client -y
+
+      # download and prepare ssh key
+      - mkdir -p ~/.ssh
+      - aws s3 cp s3://rb-encrypted-keys/id_rsa.git ~/.ssh/ --region us-east-2a
+      - chmod 600 ~/.ssh/id_rsa.git
+
+      # start ssh-agent and add the key
+      - eval "$(ssh-agent -s)"
+      - ssh-add ~/.ssh/id_rsa.git
+
+      # connect to github to allow its servers
+      - ssh -oStrictHostKeyChecking=no git@github.com || true
+
+      # Install dependencies needed for running tests // npm ci uses versions from package-lock.json
+      - npm ci
+    # pre_build:
+    #   commands:
+    #     # download the environment for testing
+    #     - aws s3 cp s3://rb-encrypted-keys/environments/trips-api-remote-test.env .env --region eu-central-1
+    #     # eslint
+    #     - npm run eslint
+    #     # delete all tables and run migrations
+    #     - NODE_ENV=test npm run delete-all-tables && NODE_ENV=test npm run migrate
+    #     # test command
+    #     - npm test
+    #     # build into dist folder
+    #     - npm run build
+  post_build:
+    commands:
+      # build into dist folder
+      - npm run build
+
+      # Remove existing node_modules to clear dev dependencies
+      - rm -r node_modules
+
+      # Install runtime dependencies
+      - npm ci --production
+artifacts:
+  type: zip
+  files:
+    - README.md
+    - appspec.yml
+    - .ebextensions/*
+    - package.json
+    - .babelrc
+    - ecosystem.json5
+    - .eslintrc.js
+    - knexfile.js
+    - config/*
+    - db/**/*
+    - bootstrap/*
+    - dist/*
+    - dist/**/*
+    - swagger/**/*
+    - node_modules/**/*
