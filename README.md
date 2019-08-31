@@ -59,6 +59,3 @@ $ npm run migrate_test
 ```
 $ npm run test
 ```
-
-## Environments
-...
