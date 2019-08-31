@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Station 1",
+    "townId": 1,
+    "stationGps": "345345 21930"
+  },
+  {
+    "id": 2,
+    "name": "Station 1",
+    "townId": 1,
+    "stationGps": "345349 21931"
+  },
+  {
+    "id": 3,
+    "name": "Station 1",
+    "townId": 1,
+    "stationGps": "345342 21934"
+  },
+  {
+    "id": 4,
+    "name": "Station 1",
+    "townId": 1,
+    "stationGps": "345341 21939"
+  },
+  {
+    "id": 5,
+    "name": "Abuja town Station 1",
+    "townId": 6,
+    "stationGps": "345341 21939"
+  }
+]

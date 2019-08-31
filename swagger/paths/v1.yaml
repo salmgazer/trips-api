@@ -1,0 +1,61 @@
+#ADMIN paths
+
+#Countries CRUD
+/admin/countries:
+  $ref: ./v1/admin/countries/index.yaml
+/admin/countries/{country_code}:
+  $ref: ./v1/admin/countries/rud.yaml
+
+#Regions CRUD
+/admin/countries/{country_code}/regions:
+  $ref: ./v1/admin/countries/regions/index.yaml
+/admin/countries/{country_code}/regions/{region_id}:
+  $ref: ./v1/admin/countries/regions/rud.yaml
+
+#Towns CRUD
+/admin/countries/{country_code}/regions/{region_id}/towns:
+  $ref: ./v1/admin/countries/regions/towns/index.yaml
+/admin/countries/{country_code}/regions/{region_id}/towns/{town_id}:
+  $ref: ./v1/admin/countries/regions/towns/rud.yaml
+
+#Stations CRUD
+/admin/countries/{country_code}/regions/{region_id}/towns/{town_id}/stations:
+  $ref: ./v1/admin/countries/regions/towns/stations/index.yaml
+/admin/countries/{country_code}/regions/{region_id}/towns/{town_id}/stations/{station_id}:
+  $ref: ./v1/admin/countries/regions/towns/stations/rud.yaml
+
+#Trips CRUD
+/admin/trips:
+  $ref: ./v1/admin/trips/index.yaml
+/admin/trips/{trip_id}:
+  $ref: ./v1/admin/trips/rud.yaml
+
+#Currencies CRUD
+/admin/currencies:
+  $ref: ./v1/admin/currencies/index.yaml
+/admin/currencies/{currency_id}:
+  $ref: ./v1/admin/currencies/rud.yaml
+
+#Companies CRUD
+/admin/companies:
+  $ref: ./v1/admin/companies/index.yaml
+/admin/companies/{company_id}:
+  $ref: ./v1/admin/companies/rud.yaml
+
+
+#CLIENT paths
+
+#Town paths
+/client/countries/{country_code}/regions/{region_id}/towns:
+  $ref: ./v1/client/towns/index.yaml
+/client/countries/{country_code}/regions/{region_id}/towns/{town_id}:
+  $ref: ./v1/client/towns/r.yaml
+
+#Client paths
+/client/trips:
+  $ref: ./v1/client/trips/index.yaml
+/client/trips/{trip_id}:
+  $ref: ./v1/client/trips/r.yaml
+
+
+

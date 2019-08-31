@@ -1,0 +1,18 @@
+x-swagger-router-controller: ClientTripsController
+get:
+  description: Shows a Trip
+  operationId: show
+  tags:
+    - $ref: ../../../../tags/client.yaml
+  parameters:
+    - $ref: "../../../../swagger_v1.yaml#/parameters/TripId"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../swagger_v1.yaml#/definitions/Trip"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml
+  security: [ { rovebusKey: [] } ]

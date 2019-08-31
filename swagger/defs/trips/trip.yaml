@@ -1,0 +1,43 @@
+type: object
+required:
+  - fromStationId
+  - toStationId
+  - fromTownId
+  - toTownId
+  - leavesAt
+  - arrivesAt
+  - price
+  - status
+  - companyId
+properties:
+  id:
+    type: integer
+  fromStationId:
+    type: integer
+  toStationId:
+    type: integer
+  fromTownId:
+    type: integer
+  toTownId:
+    type: integer
+  leavesAt:
+    type: string
+    format: date-time
+  arrivesAt:
+    type: string
+    format: date-time
+  price:
+    type: number
+    format: double
+  seatsLeft:
+    type: integer
+  status:
+    type: string
+  companyId:
+    type: integer
+  createdAt:
+    type: string
+    format: date-time
+  updatedAt:
+    type: string
+    format: date-time

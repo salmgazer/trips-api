@@ -1,0 +1,62 @@
+x-swagger-router-controller: AdminTokensController
+get:
+  description: Shows a Token
+  operationId: show
+  x-resource: tokens
+  x-permission: read
+  tags:
+  - $ref: ../../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/ClientId"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../swagger_v1.yaml#/definitions/Token"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml
+
+put:
+  description: Updates a Token
+  operationId: update
+  x-resource: tokens
+  x-permission: update
+  tags:
+  - $ref: ../../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/ClientId"
+    - in: body
+      name: Client
+      schema:
+        $ref: "../../../../swagger_v1.yaml#/definitions/Token"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../swagger_v1.yaml#/definitions/Client"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml
+
+delete:
+  description: Destroys a Token
+  operationId: destroy
+  x-resource: tokens
+  x-permission: delete
+  tags:
+  - $ref: ../../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/ClientId"
+  responses:
+    "200":
+      description: Success
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml

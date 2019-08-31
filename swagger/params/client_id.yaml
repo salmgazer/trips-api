@@ -1,0 +1,5 @@
+in: path
+name: client_id
+description: Client ID
+required: true
+type: integer

@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "fromStationId": 1,
+    "toStationId": 5,
+    "fromTownId": 1,
+    "toTownId": 6,
+    "leavesAt": "2019-08-17T15:07:27.443Z",
+    "arrivesAt": "2019-08-17T18:07:27.443Z",
+    "price": 120,
+    "status": "boarding",
+    "companyId": 1
+  },
+  {
+    "id": 2,
+    "fromStationId": 5,
+    "toStationId": 1,
+    "fromTownId": 6,
+    "toTownId": 1,
+    "leavesAt": "2019-08-17T10:07:27.443Z",
+    "arrivesAt": "2019-08-17T17:07:27.443Z",
+    "price": 120,
+    "status": "boarding",
+    "companyId": 2
+  },
+  {
+    "id": 3,
+    "fromStationId": 1,
+    "toStationId": 5,
+    "fromTownId": 1,
+    "toTownId": 6,
+    "leavesAt": "2019-08-17T07:07:27.443Z",
+    "arrivesAt": "2019-08-17T15:07:27.443Z",
+    "price": 120,
+    "status": "boarding",
+    "companyId": 3
+  }
+]

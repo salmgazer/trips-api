@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "Ghanaian cedis",
+    "symbol": "GHS"
+  },
+  {
+    "id": 2,
+    "name": "American dollar",
+    "symbol": "US$"
+  },
+  {
+    "id": 3,
+    "name": "CFA Franc",
+    "symbol": "CFA"
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "STC",
+    "logo": "https://stc.com/logo.png"
+  },
+  {
+    "id": 2,
+    "name": "Royal DVLA",
+    "logo": "https://royaldvla.com/logo.png"
+  },
+  {
+    "id": 3,
+    "name": "VIP",
+    "logo": "https://vip.com/logo.png"
+  }
+]

@@ -1,0 +1,46 @@
+x-swagger-router-controller: AdminTokensController
+get:
+  description: Lists tokens
+  operationId: index
+  x-resource: tokens
+  x-permission: read
+  tags:
+  - $ref: ../../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/ClientId"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: ../../../../../defs/tokens/index.yaml
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]
+
+post:
+  description: Creates a Client
+  operationId: create
+  x-resource: tokens
+  x-permission: create
+  tags:
+  - $ref: ../../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/ClientId"
+    - in: body
+      name: Client
+      schema:
+        $ref: "../../../../swagger_v1.yaml#/definitions/Token"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../swagger_v1.yaml#/definitions/Token"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]

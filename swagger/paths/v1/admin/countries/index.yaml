@@ -1,0 +1,47 @@
+x-swagger-router-controller: AdminCountriesController
+get:
+  description: Lists countries
+  operationId: index
+  x-resource: countries
+  x-permission: read
+  tags:
+  - $ref: ../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Offset"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Limit"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Sort"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: ../../../../defs/countries/index.yaml
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]
+
+post:
+  description: Creates a Country
+  operationId: create
+  x-resource: countries
+  x-permission: create
+  tags:
+  - $ref: ../../../../tags/admin.yaml
+  parameters:
+  - $ref: "../../../../swagger_v1.yaml#/parameters/Authorization"
+  - in: body
+    name: Country
+    schema:
+      $ref: "../../../../swagger_v1.yaml#/definitions/Country"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../swagger_v1.yaml#/definitions/Country"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]

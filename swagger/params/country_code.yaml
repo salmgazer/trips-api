@@ -1,0 +1,5 @@
+in: path
+name: country_code
+description: Country Code
+required: true
+type: string

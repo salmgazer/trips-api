@@ -1,0 +1,5 @@
+in: path
+name: currency_id
+description: Currency ID
+required: true
+type: integer

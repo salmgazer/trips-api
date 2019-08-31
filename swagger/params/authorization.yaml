@@ -1,0 +1,5 @@
+in: header
+name: Authorization
+type: string
+required: true
+description: JWT token for admin user

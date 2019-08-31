@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "name": "Greater Accra",
+    "countryCode": "GH"
+  },
+  {
+    "id": 2,
+    "name": "Central",
+    "countryCode": "GH"
+  },
+  {
+    "id": 3,
+    "name": "Western",
+    "countryCode": "GH"
+  },
+  {
+    "id": 4,
+    "name": "Eastern",
+    "countryCode": "GH"
+  },
+  {
+    "id": 5,
+    "name": "Abuja",
+    "countryCode": "NG"
+  }
+]

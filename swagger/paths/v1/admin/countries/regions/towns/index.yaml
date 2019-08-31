@@ -1,0 +1,51 @@
+x-swagger-router-controller: AdminTownsController
+get:
+  description: Lists towns
+  operationId: index
+  x-resource: towns
+  x-permission: read
+  tags:
+  - $ref: ../../../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../../../swagger_v1.yaml#/parameters/CountryCode"
+    - $ref: "../../../../../../swagger_v1.yaml#/parameters/RegionId"
+    - $ref: "../../../../../../swagger_v1.yaml#/parameters/Offset"
+    - $ref: "../../../../../../swagger_v1.yaml#/parameters/Limit"
+    - $ref: "../../../../../../swagger_v1.yaml#/parameters/Sort"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: ../../../../../../defs/towns/index.yaml
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]
+
+post:
+  description: Creates a Town
+  operationId: create
+  x-resource: towns
+  x-permission: create
+  tags:
+  - $ref: ../../../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../../../swagger_v1.yaml#/parameters/CountryCode"
+    - $ref: "../../../../../../swagger_v1.yaml#/parameters/RegionId"
+    - in: body
+      name: Town
+      schema:
+        $ref: "../../../../../../swagger_v1.yaml#/definitions/Town"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../../../swagger_v1.yaml#/definitions/Town"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]

@@ -1,0 +1,65 @@
+x-swagger-router-controller: AdminCountriesController
+get:
+  description: Shows a Country
+  operationId: show
+  x-resource: countries
+  x-permission: read
+  tags:
+  - $ref: ../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/CountryCode"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../swagger_v1.yaml#/definitions/Country"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]
+
+put:
+  description: Updates a Country
+  operationId: update
+  x-resource: countries
+  x-permission: update
+  tags:
+  - $ref: ../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/CountryCode"
+    - in: body
+      name: Country
+      schema:
+        $ref: "../../../../swagger_v1.yaml#/definitions/Country"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../swagger_v1.yaml#/definitions/Country"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]
+
+delete:
+  description: Destroys a Country
+  operationId: destroy
+  x-resource: countries
+  x-permission: delete
+  tags:
+  - $ref: ../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/CountryCode"
+  responses:
+    "200":
+      description: Success
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]

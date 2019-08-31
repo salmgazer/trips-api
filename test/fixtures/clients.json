@@ -1,0 +1,17 @@
+[
+  {
+    "id": "rovebus.website",
+    "name": "mobile",
+    "description": "This is web client"
+  },
+  {
+    "id": "rovebus.android",
+    "name": "student",
+    "description": "This is android client"
+  },
+  {
+    "id": "rovebus.ios",
+    "name": "ios",
+    "description": "This is ios client"
+  }
+]

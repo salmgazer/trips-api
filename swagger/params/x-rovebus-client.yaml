@@ -1,0 +1,5 @@
+in: header
+name: X-Rovebus-Client
+type: string
+required: false
+description: An identifier of the client

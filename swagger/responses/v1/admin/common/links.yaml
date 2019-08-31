@@ -1,0 +1,11 @@
+type: array
+items:
+  type: object
+  required:
+    - rel
+    - href
+  properties:
+    rel:
+      type: string
+    href:
+      type: string

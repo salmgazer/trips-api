@@ -1,0 +1,24 @@
+x-swagger-router-controller: ClientTripsController
+get:
+  description: Lists trips
+  operationId: index
+  tags:
+    - $ref: ../../../../tags/client.yaml
+  parameters:
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Offset"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Limit"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Sort"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/FromTownId"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/ToTownId"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/LeavesAt"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: ../../../../defs/trips/index.yaml
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml
+  security: [ { rovebusKey: [] } ]
+

@@ -1,0 +1,5 @@
+in: query
+name: sort
+description: "Sorts by indicated field. It can be any member field of the entity. It can include asc or desc. For example: title or title:asc or title:desc, createdAt or createdAt:asc or createdAt:desc"
+required: false
+type: string

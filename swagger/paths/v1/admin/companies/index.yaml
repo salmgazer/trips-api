@@ -1,0 +1,47 @@
+x-swagger-router-controller: AdminCompaniesController
+get:
+  description: Lists companies
+  operationId: index
+  x-resource: ccompanies
+  x-permission: read
+  tags:
+  - $ref: ../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Offset"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Limit"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Sort"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../swagger_v1.yaml#/definitions/Company"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]
+
+post:
+  description: Creates a Company
+  operationId: create
+  x-resource: companies
+  x-permission: create
+  tags:
+  - $ref: ../../../../tags/admin.yaml
+  parameters:
+  - $ref: "../../../../swagger_v1.yaml#/parameters/Authorization"
+  - in: body
+    name: Company
+    schema:
+      $ref: "../../../../swagger_v1.yaml#/definitions/Company"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../swagger_v1.yaml#/definitions/Company"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]

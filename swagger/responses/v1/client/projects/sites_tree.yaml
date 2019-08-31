@@ -1,0 +1,42 @@
+type: array
+items:
+  type: object
+  required:
+    - name
+    - code
+    - projectId
+    - parentId
+    - children
+  properties:
+    id:
+      type: integer
+    name:
+      type: string
+    code:
+      description: Site's short code
+      type: string
+    projectId:
+      type: integer
+    parentId:
+      type: integer
+    children:
+      type: array
+      items:
+        type: object
+        required:
+          - name
+          - code
+          - projectId
+          - parentId
+        properties:
+          id:
+            type: integer
+          name:
+            type: string
+          code:
+            description: Site's short code
+            type: string
+          projectId:
+            type: integer
+          parentId:
+            type: integer

@@ -1,0 +1,2 @@
+type: integer
+description: The number of elements returned in the result set

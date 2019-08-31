@@ -1,0 +1,65 @@
+x-swagger-router-controller: AdminCurrenciesController
+get:
+  description: Shows a Currency
+  operationId: show
+  x-resource: currencies
+  x-permission: read
+  tags:
+  - $ref: ../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/CurrencyId"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../swagger_v1.yaml#/definitions/Currency"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]
+
+put:
+  description: Updates a Currency
+  operationId: update
+  x-resource: currencies
+  x-permission: update
+  tags:
+  - $ref: ../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/CurrencyId"
+    - in: body
+      name: Currency
+      schema:
+        $ref: "../../../../swagger_v1.yaml#/definitions/Currency"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../swagger_v1.yaml#/definitions/Currency"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]
+
+delete:
+  description: Destroys a Currency
+  operationId: destroy
+  x-resource: currencies
+  x-permission: delete
+  tags:
+  - $ref: ../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/CurrencyId"
+  responses:
+    "200":
+      description: Success
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]

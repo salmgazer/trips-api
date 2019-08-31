@@ -1,0 +1,68 @@
+x-swagger-router-controller: AdminRegionsController
+get:
+  description: Shows a Region
+  operationId: show
+  x-resource: regions
+  x-permission: read
+  tags:
+  - $ref: ../../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/CountryCode"
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/RegionId"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../../swagger_v1.yaml#/definitions/Region"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]
+
+put:
+  description: Updates a Region
+  operationId: update
+  x-resource: regions
+  x-permission: update
+  tags:
+  - $ref: ../../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/CountryCode"
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/RegionId"
+    - in: body
+      name: Region
+      schema:
+        $ref: "../../../../../swagger_v1.yaml#/definitions/Region"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../../swagger_v1.yaml#/definitions/Region"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]
+
+delete:
+  description: Destroys a Region
+  operationId: destroy
+  x-resource: regions
+  x-permission: delete
+  tags:
+  - $ref: ../../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/CountryCode"
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/RegionId"
+  responses:
+    "200":
+      description: Success
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]

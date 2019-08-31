@@ -1,0 +1,5 @@
+in: query
+name: from_town_id
+description: Departure Town ID
+required: false
+type: integer

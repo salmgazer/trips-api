@@ -1,0 +1,5 @@
+in: header
+name: X-Rovebus-Timestamp
+type: string
+required: false
+description: The timestamp of the request (Unix Format)

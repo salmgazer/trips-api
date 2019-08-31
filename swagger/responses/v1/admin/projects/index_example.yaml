@@ -1,0 +1,24 @@
+offset: 0
+count: 20
+totalCount: 35
+totalPages: 2
+projects:
+  -
+    id: 1
+    name: Pencils Of Promise (Ghana)
+    code: POM-Gh
+    underProvision: false
+    createdAt: "2017-08-08T11:47:21Z"
+  -
+    id: 2
+    name: Pencils Of Promise (Kenya)
+    code: POM-Kn
+    underProvision: true
+    createdAt: "2017-08-08T11:47:21Z"
+links:
+  -
+    rel: "previous"
+    href: ""
+  -
+    rel: "next"
+    href: "/v0.1/admin/projects?offset=20"

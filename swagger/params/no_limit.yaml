@@ -1,0 +1,8 @@
+in: query
+name: limit
+description: Number of elements to return (Default value is all dataset)
+required: false
+type: integer
+default: 1000
+minimum: 1000
+maximum: 1000

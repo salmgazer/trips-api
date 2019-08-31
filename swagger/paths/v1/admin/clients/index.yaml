@@ -1,0 +1,44 @@
+x-swagger-router-controller: AdminClientsController
+get:
+  description: Lists clients
+  operationId: index
+  x-resource: clients
+  x-permission: read
+  tags:
+  - $ref: ../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Authorization"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: ../../../../defs/clients/index.yaml
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]
+
+post:
+  description: Creates a Client
+  operationId: create
+  x-resource: clients
+  x-permission: create
+  tags:
+  - $ref: ../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Authorization"
+    - in: body
+      name: Client
+      schema:
+        $ref: "../../../../swagger_v1.yaml#/definitions/Client"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../swagger_v1.yaml#/definitions/Client"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]

@@ -1,0 +1,5 @@
+in: query
+name: to_town_id
+description: Destionation Town ID
+required: false
+type: integer

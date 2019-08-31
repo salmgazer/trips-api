@@ -1,0 +1,4 @@
+type: array
+items:
+  description: Uuids of the books for the array
+  type: string

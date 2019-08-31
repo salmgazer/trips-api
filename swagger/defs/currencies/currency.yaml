@@ -1,0 +1,17 @@
+type: object
+required:
+  - name
+  - symbol
+properties:
+  id:
+    type: integer
+  name:
+    type: string
+  symbol:
+    type: string
+  createdAt:
+    type: string
+    format: date-time
+  updatedAt:
+    type: string
+    format: date-time

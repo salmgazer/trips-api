@@ -1,0 +1,65 @@
+x-swagger-router-controller: AdminTripsController
+get:
+  description: Shows a Trip
+  operationId: show
+  x-resource: trips
+  x-permission: read
+  tags:
+  - $ref: ../../../../tags/admin.yaml
+  parameters:
+  - $ref: "../../../../swagger_v1.yaml#/parameters/Authorization"
+  - $ref: "../../../../swagger_v1.yaml#/parameters/TripId"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../swagger_v1.yaml#/definitions/Trip"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]
+
+put:
+  description: Updates a Trip
+  operationId: update
+  x-resource: trips
+  x-permission: update
+  tags:
+  - $ref: ../../../../tags/admin.yaml
+  parameters:
+  - $ref: "../../../../swagger_v1.yaml#/parameters/Authorization"
+  - $ref: "../../../../swagger_v1.yaml#/parameters/TripId"
+  - in: body
+    name: Trip
+    schema:
+      $ref: "../../../../swagger_v1.yaml#/definitions/Trip"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../swagger_v1.yaml#/definitions/Trip"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]
+
+delete:
+  description: Destroys a Trip
+  operationId: destroy
+  x-resource: trips
+  x-permission: delete
+  tags:
+  - $ref: ../../../../tags/admin.yaml
+  parameters:
+  - $ref: "../../../../swagger_v1.yaml#/parameters/Authorization"
+  - $ref: "../../../../swagger_v1.yaml#/parameters/TripId"
+  responses:
+    "200":
+      description: Success
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]

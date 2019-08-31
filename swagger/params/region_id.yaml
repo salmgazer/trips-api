@@ -1,0 +1,5 @@
+in: path
+name: region_id
+description: Region ID
+required: true
+type: integer

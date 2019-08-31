@@ -1,0 +1,47 @@
+x-swagger-router-controller: AdminCurrenciesController
+get:
+  description: Lists currencies
+  operationId: index
+  x-resource: currencies
+  x-permission: read
+  tags:
+  - $ref: ../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Offset"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Limit"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Sort"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../swagger_v1.yaml#/definitions/Currency"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]
+
+post:
+  description: Creates a Currency
+  operationId: create
+  x-resource: currencies
+  x-permission: create
+  tags:
+  - $ref: ../../../../tags/admin.yaml
+  parameters:
+  - $ref: "../../../../swagger_v1.yaml#/parameters/Authorization"
+  - in: body
+    name: Currency
+    schema:
+      $ref: "../../../../swagger_v1.yaml#/definitions/Currency"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../swagger_v1.yaml#/definitions/Currency"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]

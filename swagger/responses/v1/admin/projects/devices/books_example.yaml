@@ -1,0 +1,26 @@
+offset: 0
+count: 20
+totalCount: 35
+totalPages: 2
+books:
+  -
+    uuid: 25e7f95a-e50d-4c7e-82d4-b48106b606be
+    title: The Wizard of Oz
+    status: downloaded
+    errorMessage: ""
+    createdAt: "2017-08-08T11:47:21Z"
+    updatedAt: "2017-08-08T11:47:21Z"
+  -
+    uuid: 04eec6a6-20b5-4970-bf76-6be0229d0e39
+    title: Matrix
+    status: error
+    errorMessage: Cannot find Epub
+    createdAt: "2017-08-08T11:47:21Z"
+    updatedAt: "2017-08-08T11:47:21Z"
+links:
+  -
+    rel: "previous"
+    href: ""
+  -
+    rel: "next"
+    href: "/v0.1/admin/projects/1/devices/123/books?offset=20"

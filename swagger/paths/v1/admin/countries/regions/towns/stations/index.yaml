@@ -1,0 +1,53 @@
+x-swagger-router-controller: AdminStationsController
+get:
+  description: Lists stations
+  operationId: index
+  x-resource: stations
+  x-permission: read
+  tags:
+  - $ref: ../../../../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../../../../swagger_v1.yaml#/parameters/CountryCode"
+    - $ref: "../../../../../../../swagger_v1.yaml#/parameters/RegionId"
+    - $ref: "../../../../../../../swagger_v1.yaml#/parameters/TownId"
+    - $ref: "../../../../../../../swagger_v1.yaml#/parameters/Offset"
+    - $ref: "../../../../../../../swagger_v1.yaml#/parameters/Limit"
+    - $ref: "../../../../../../../swagger_v1.yaml#/parameters/Sort"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: ../../../../../../../defs/stations/index.yaml
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]
+
+post:
+  description: Creates a Station
+  operationId: create
+  x-resource: stations
+  x-permission: create
+  tags:
+  - $ref: ../../../../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../../../../swagger_v1.yaml#/parameters/CountryCode"
+    - $ref: "../../../../../../../swagger_v1.yaml#/parameters/RegionId"
+    - $ref: "../../../../../../../swagger_v1.yaml#/parameters/TownId"
+    - in: body
+      name: Station
+      schema:
+        $ref: "../../../../../../../swagger_v1.yaml#/definitions/Station"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../../../../swagger_v1.yaml#/definitions/Station"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]

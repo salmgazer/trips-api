@@ -1,0 +1,71 @@
+x-swagger-router-controller: AdminTownsController
+get:
+  description: Shows a Town
+  operationId: show
+  x-resource: towns
+  x-permission: read
+  tags:
+  - $ref: ../../../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../../../swagger_v1.yaml#/parameters/CountryCode"
+    - $ref: "../../../../../../swagger_v1.yaml#/parameters/RegionId"
+    - $ref: "../../../../../../swagger_v1.yaml#/parameters/TownId"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../../../swagger_v1.yaml#/definitions/Town"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]
+
+put:
+  description: Updates a Town
+  operationId: update
+  x-resource: towns
+  x-permission: update
+  tags:
+  - $ref: ../../../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../../../swagger_v1.yaml#/parameters/CountryCode"
+    - $ref: "../../../../../../swagger_v1.yaml#/parameters/RegionId"
+    - $ref: "../../../../../../swagger_v1.yaml#/parameters/TownId"
+    - in: body
+      name: Town
+      schema:
+        $ref: "../../../../../../swagger_v1.yaml#/definitions/Town"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../../../swagger_v1.yaml#/definitions/Town"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]
+
+delete:
+  description: Destroys a Town
+  operationId: destroy
+  x-resource: towns
+  x-permission: delete
+  tags:
+  - $ref: ../../../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../../../swagger_v1.yaml#/parameters/CountryCode"
+    - $ref: "../../../../../../swagger_v1.yaml#/parameters/RegionId"
+    - $ref: "../../../../../../swagger_v1.yaml#/parameters/TownId"
+  responses:
+    "200":
+      description: Success
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]

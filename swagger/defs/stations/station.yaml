@@ -1,0 +1,19 @@
+type: object
+required:
+  - name
+  - townId
+properties:
+  id:
+    type: integer
+  name:
+    type: string
+  townId:
+    type: integer
+  stationGps:
+    type: string
+  createdAt:
+    type: string
+    format: date-time
+  updatedAt:
+    type: string
+    format: date-time

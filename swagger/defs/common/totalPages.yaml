@@ -1,0 +1,2 @@
+type: integer
+description: total number of pages with the given page size

@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Circle",
+    "regionId": 1
+  },
+  {
+    "id": 2,
+    "name": "Awudome",
+    "regionId": 1
+  },
+  {
+    "id": 3,
+    "name": "Achimota",
+    "regionId": 1
+  },
+  {
+    "id": 4,
+    "name": "Tema",
+    "regionId": 1
+  },
+  {
+    "id": 5,
+    "name": "Lapaz",
+    "regionId": 1
+  },
+  {
+    "id": 6,
+    "name": "Abuja town",
+    "regionId": 5
+  }
+]

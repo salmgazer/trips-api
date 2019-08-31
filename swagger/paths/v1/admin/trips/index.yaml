@@ -1,0 +1,50 @@
+x-swagger-router-controller: AdminTripsController
+get:
+  description: Lists trips
+  operationId: index
+  x-resource: trips
+  x-permission: read
+  tags:
+  - $ref: ../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Offset"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Limit"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Sort"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/FromTownId"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/ToTownId"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/LeavesAt"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../swagger_v1.yaml#/definitions/Trip"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]
+
+post:
+  description: Creates a Trip
+  operationId: create
+  x-resource: trips
+  x-permission: create
+  tags:
+  - $ref: ../../../../tags/admin.yaml
+  parameters:
+  - $ref: "../../../../swagger_v1.yaml#/parameters/Authorization"
+  - in: body
+    name: Trip
+    schema:
+      $ref: "../../../../swagger_v1.yaml#/definitions/Trip"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../swagger_v1.yaml#/definitions/Trip"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]

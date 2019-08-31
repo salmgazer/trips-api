@@ -1,0 +1,49 @@
+x-swagger-router-controller: AdminRegionsController
+get:
+  description: Lists regions
+  operationId: index
+  x-resource: regions
+  x-permission: read
+  tags:
+  - $ref: ../../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/CountryCode"
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/Offset"
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/Limit"
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/Sort"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: ../../../../../defs/regions/index.yaml
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]
+
+post:
+  description: Creates a Region
+  operationId: create
+  x-resource: regions
+  x-permission: create
+  tags:
+  - $ref: ../../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/CountryCode"
+    - in: body
+      name: Region
+      schema:
+        $ref: "../../../../../swagger_v1.yaml#/definitions/Region"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../../swagger_v1.yaml#/definitions/Region"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]

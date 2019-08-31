@@ -1,0 +1,7 @@
+in: query
+name: offset
+description: Offset value of the result window (Default value is 0)
+required: false
+type: integer
+default: 0
+minimum: 0

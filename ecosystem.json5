@@ -1,0 +1,27 @@
+{
+  /**
+   * Application configuration section
+   * http://pm2.keymetrics.io/docs/usage/application-declaration/
+   */
+  apps : [
+
+    // First application
+    {
+      name      : "trips-api",
+      script    : "./dist/server.js",
+      instances: 2,
+      max_memory_restart: '230M',
+      watch: false,
+      //node_args: "--require dotenv/config",
+      exec_interpreter: "./node_modules/.bin/babel-node",
+      //watch: true,
+      //ignore_watch : ["node_modules", ".git", ".gitignore", "npm-debug.log"],
+      env_local: {
+        PORT: 3040
+      },
+      env: {
+        PORT: 8081
+      }
+    }
+  ]
+}

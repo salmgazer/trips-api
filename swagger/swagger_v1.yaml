@@ -1,0 +1,92 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: Rovebus Trips API
+host: localhost:3030
+basePath: /v1
+
+schemes:
+  - http
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+
+paths:
+  $ref: ./paths/v1.yaml
+  /swagger:
+    x-swagger-pipe: swagger_raw
+
+parameters:
+  X-Rovebus-Hash:
+    $ref: ./params/x-rovebus-hash.yaml
+  X-Rovebus-Timestamp:
+    $ref: ./params/x-rovebus-timestamp.yaml
+  X-Rovebus-Client:
+    $ref: ./params/x-rovebus-client.yaml
+  CountryCode:
+    $ref: ./params/country_code.yaml
+  CurrencyId:
+    $ref: ./params/currency_id.yaml
+  RegionId:
+    $ref: ./params/region_id.yaml
+  TownId:
+    $ref: ./params/town_id.yaml
+  StationId:
+    $ref: ./params/station_id.yaml
+  TripId:
+    $ref: ./params/trip_id.yaml
+  ClientId:
+    $ref: ./params/client_id.yaml
+  CompanyId:
+    $ref: ./params/company_id.yaml
+  Search:
+    $ref: ./params/search.yaml
+  Sort:
+    $ref: ./params/sort.yaml
+  Offset:
+    $ref: ./params/offset.yaml
+  Limit:
+    $ref: ./params/limit.yaml
+  No-Limit:
+    $ref: ./params/no_limit.yaml
+  Authorization:
+    $ref: ./params/authorization.yaml
+  FromTownId:
+    $ref: ./params/from_town_id.yaml
+  ToTownId:
+    $ref: ./params/to_town_id.yaml
+  LeavesAt:
+    $ref: ./params/leaves_at.yaml
+
+definitions:
+  Client:
+    $ref: ./defs/clients/client.yaml
+  Country:
+    $ref: ./defs/countries/country.yaml
+  Currency:
+    $ref: ./defs/currencies/currency.yaml
+  Region:
+    $ref: ./defs/regions/region.yaml
+  Station:
+    $ref: ./defs/stations/station.yaml
+  Token:
+    $ref: ./defs/tokens/token.yaml
+  Town:
+    $ref: ./defs/towns/town.yaml
+  Trip:
+    $ref: ./defs/trips/trip.yaml
+  Company:
+    $ref: ./defs/companies/company.yaml
+
+
+securityDefinitions:
+  rovebusKey:
+    type: apiKey
+    in: header
+    name: X-Rovebus-Hash
+  adminAuth:
+    type: apiKey
+    in: header
+    name: Authorization

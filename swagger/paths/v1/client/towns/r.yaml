@@ -1,0 +1,20 @@
+x-swagger-router-controller: ClientTownsController
+get:
+  description: Shows a Town
+  operationId: show
+  tags:
+  - $ref: ../../../../tags/client.yaml
+  parameters:
+    - $ref: "../../../../swagger_v1.yaml#/parameters/CountryCode"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/RegionId"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/TownId"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../swagger_v1.yaml#/definitions/Town"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml
+  security: [ { rovebusKey: [] } ]
