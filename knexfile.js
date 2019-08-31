@@ -1,7 +1,7 @@
 module.exports = {
   development: {
     client: 'pg',
-    connection: process.env.POSTGRESQLCONNSTR_DB || 'postgres://localhost/trips_api',
+    connection: process.env.POSTGRESQLCONNSTR_DB,
     migrations: {
       directory: `${__dirname}/db/migrations`,
     },
@@ -11,7 +11,7 @@ module.exports = {
   },
   test: {
     client: 'pg',
-    connection: process.env.POSTGRESQLCONNSTR_TEST_DB || 'postgres://localhost/trips_api_test',
+    connection: process.env.POSTGRESQLCONNSTR_TEST_DB,
     migrations: {
       directory: `${__dirname}/db/migrations`,
     },
