@@ -16,5 +16,9 @@ export default class Currency extends BaseModel {
       'symbol'
     ];
   }
+
+  static get softDelete() {
+    return true;
+  }
 }
 

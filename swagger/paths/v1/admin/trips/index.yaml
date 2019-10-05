@@ -13,7 +13,7 @@ get:
     - $ref: "../../../../swagger_v1.yaml#/parameters/Sort"
     - $ref: "../../../../swagger_v1.yaml#/parameters/FromTownId"
     - $ref: "../../../../swagger_v1.yaml#/parameters/ToTownId"
-    - $ref: "../../../../swagger_v1.yaml#/parameters/LeavesAt"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/LeavesAtUnRequired"
   responses:
     "200":
       description: Success

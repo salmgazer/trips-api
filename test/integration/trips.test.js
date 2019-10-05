@@ -311,7 +311,7 @@ describe('***** ALL TRIP TESTS *****', () => {
 					.expect('Content-Type', /json/)
 					.expect(200);
 
-				expect(response.body).to.eq(1);
+				expect(response.body.deleted).to.eq(true);
 			});
 
 			it('Fails to delete an unexisting Trip', async () => {
@@ -349,7 +349,7 @@ describe('***** ALL TRIP TESTS *****', () => {
 			});
 
 			it('Returns a list of trips', async () => {
-				const requestPath = `${apiPaths.v1.clientBasePath}/${resources.trips}?offset=${offset}&limit=${limit}`;
+				const requestPath = `${apiPaths.v1.clientBasePath}/${resources.trips}?offset=${offset}&limit=${limit}&leaves_at=2019-08-17T07:07:27.443Z`;
 				const response = await request(app)
 					.get(requestPath)
 					.set(signedHeaders(requestPath))
@@ -361,7 +361,7 @@ describe('***** ALL TRIP TESTS *****', () => {
 			});
 
 			it('Returns a list of trips from town id 1 to town id 6', async () => {
-				const requestPath = `${apiPaths.v1.clientBasePath}/${resources.trips}?offset=${offset}&limit=${limit}&to_town_id=6&from_town_id=1`;
+				const requestPath = `${apiPaths.v1.clientBasePath}/${resources.trips}?offset=${offset}&limit=${limit}&to_town_id=6&from_town_id=1&leaves_at=2019-08-17T07:07:27.443Z`;
 				const expectedTrips = trips.filter(t => t.fromTownId === 1 && t.toTownId === 6);
 
 				const response = await request(app)
@@ -375,7 +375,7 @@ describe('***** ALL TRIP TESTS *****', () => {
 			});
 
 			it('Returns a list of trips from town id 1 to town id 6', async () => {
-				const requestPath = `${apiPaths.v1.clientBasePath}/${resources.trips}?offset=${offset}&limit=1&to_town_id=6&from_town_id=1`;
+				const requestPath = `${apiPaths.v1.clientBasePath}/${resources.trips}?offset=${offset}&limit=1&to_town_id=6&from_town_id=1&leaves_at=2019-08-17T07:07:27.443Z`;
 
 				const response = await request(app)
 					.get(requestPath)
@@ -388,7 +388,7 @@ describe('***** ALL TRIP TESTS *****', () => {
 			});
 
 			it('Returns a list of trips from town id 6 to town id 1', async () => {
-				const requestPath = `${apiPaths.v1.clientBasePath}/${resources.trips}?offset=${offset}&limit=${limit}&to_town_id=1&from_town_id=6`;
+				const requestPath = `${apiPaths.v1.clientBasePath}/${resources.trips}?offset=${offset}&limit=${limit}&to_town_id=1&from_town_id=6&leaves_at=2019-08-17T07:07:27.443Z`;
 				const expectedTrips = trips.filter(t => t.fromTownId === 6 && t.toTownId === 1);
 
 				const response = await request(app)

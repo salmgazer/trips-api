@@ -1,0 +1,35 @@
+type: object
+required:
+  - phone
+  - tripId
+  - numberOfSeats
+properties:
+  id:
+    type: integer
+  phone:
+    type: string
+  userEmail:
+    type: string
+  tripId:
+    type: integer
+  numberOfSeats:
+    type: integer
+  status:
+    type: string
+    enum: [unpaid, paid, canceled, used]
+  trip:
+    $ref: "../trips/trip.yaml"
+  unusedTicketCodes:
+    type: array
+    items:
+      type: string
+  usedTicketCodes:
+    type: array
+    items:
+      type: string
+  createdAt:
+    type: string
+    format: date-time
+  updatedAt:
+    type: string
+    format: date-time

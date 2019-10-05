@@ -2,16 +2,19 @@
   {
     "id": 1,
     "name": "Ghanaian cedis",
-    "symbol": "GHS"
+    "symbol": "GHS",
+    "deleted": false
   },
   {
     "id": 2,
     "name": "American dollar",
-    "symbol": "US$"
+    "symbol": "US$",
+    "deleted": false
   },
   {
     "id": 3,
     "name": "CFA Franc",
-    "symbol": "CFA"
+    "symbol": "CFA",
+    "deleted": false
   }
 ]

@@ -3,6 +3,7 @@ exports.up = async (knex) => {
     table.increments('id');
     table.string('name').notNullable();
     table.string('logo');
+    table.boolean('deleted').notNullable().defaultTo(false);
     table
       .timestamp('createdAt')
       .notNullable()

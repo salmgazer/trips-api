@@ -4,7 +4,7 @@ required:
   - count
   - totalCount
   - totalPages
-  - projects
+  - bookings
   - links
 
 properties:
@@ -18,7 +18,7 @@ properties:
     $ref: "../common/totalPages.yaml"
   links:
     $ref: "../common/links.yaml"
-  projects:
+  bookings:
     type: array
     items:
-      $ref: "../../../../swagger_v1.yaml#/definitions/Project"
+      $ref: "../../swagger_v1.yaml#/definitions/Booking"

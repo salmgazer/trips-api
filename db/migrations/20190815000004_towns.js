@@ -5,6 +5,7 @@ exports.up = async (knex) => {
     table.string('name').notNullable();
     table.integer('regionId');
     table.foreign('regionId').references('regions.id');
+    table.boolean('deleted').notNullable().defaultTo(false);
     table
       .timestamp('createdAt')
       .notNullable()

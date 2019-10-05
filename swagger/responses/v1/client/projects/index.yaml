@@ -1,3 +1,0 @@
-type: array
-items:
-  $ref: "../../../../swagger_v1.yaml#/definitions/Project"

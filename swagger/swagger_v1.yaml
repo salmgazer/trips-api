@@ -41,6 +41,8 @@ parameters:
     $ref: ./params/client_id.yaml
   CompanyId:
     $ref: ./params/company_id.yaml
+  BookingId:
+    $ref: ./params/booking_id.yaml
   Search:
     $ref: ./params/search.yaml
   Sort:
@@ -53,12 +55,16 @@ parameters:
     $ref: ./params/no_limit.yaml
   Authorization:
     $ref: ./params/authorization.yaml
+  OptionalAuthorization:
+    $ref: ./params/optional_authorization.yaml
   FromTownId:
     $ref: ./params/from_town_id.yaml
   ToTownId:
     $ref: ./params/to_town_id.yaml
   LeavesAt:
     $ref: ./params/leaves_at.yaml
+  LeavesAtUnRequired:
+    $ref: ./params/leaves_at_unrequired.yaml
 
 definitions:
   Client:
@@ -79,6 +85,8 @@ definitions:
     $ref: ./defs/trips/trip.yaml
   Company:
     $ref: ./defs/companies/company.yaml
+  Booking:
+    $ref: ./defs/bookings/booking.yaml
 
 
 securityDefinitions:

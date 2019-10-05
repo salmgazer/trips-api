@@ -3,6 +3,7 @@ exports.up = async (knex) => {
   await knex.schema.createTable('countries', (table) => {
     table.string('code');
     table.string('name').notNullable();
+    table.boolean('deleted').notNullable().defaultTo(false);
     table
       .timestamp('createdAt')
       .notNullable()

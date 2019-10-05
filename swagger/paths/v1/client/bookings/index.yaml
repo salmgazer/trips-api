@@ -1,0 +1,44 @@
+x-swagger-router-controller: ClientBookingsController
+post:
+  description: Book a trip
+  operationId: create
+  tags:
+    - $ref: ../../../../tags/client.yaml
+  parameters:
+    - $ref: "../../../../swagger_v1.yaml#/parameters/OptionalAuthorization"
+    - in: body
+      name: Booking
+      schema:
+        $ref: "../../../../swagger_v1.yaml#/definitions/Booking"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../swagger_v1.yaml#/definitions/Booking"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml
+  security: [ { rovebusKey: [] } ]
+
+get:
+  description: Lists Bookings
+  operationId: index
+  tags:
+    - $ref: ../../../../tags/client.yaml
+  parameters:
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Offset"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Limit"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Sort"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: ../../../../defs/bookings/index.yaml
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml
+  security: [ { rovebusKey: [], adminAuth: [] } ]
+

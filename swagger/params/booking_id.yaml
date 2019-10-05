@@ -1,0 +1,5 @@
+in: path
+name: booking_id
+description: Booking ID
+required: true
+type: integer

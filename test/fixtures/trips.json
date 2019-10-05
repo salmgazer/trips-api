@@ -9,7 +9,8 @@
     "arrivesAt": "2019-08-17T18:07:27.443Z",
     "price": 120,
     "status": "boarding",
-    "companyId": 1
+    "companyId": 1,
+    "deleted": false
   },
   {
     "id": 2,
@@ -21,7 +22,8 @@
     "arrivesAt": "2019-08-17T17:07:27.443Z",
     "price": 120,
     "status": "boarding",
-    "companyId": 2
+    "companyId": 2,
+    "deleted": false
   },
   {
     "id": 3,
@@ -33,6 +35,7 @@
     "arrivesAt": "2019-08-17T15:07:27.443Z",
     "price": 120,
     "status": "boarding",
-    "companyId": 3
+    "companyId": 3,
+    "deleted": false
   }
 ]

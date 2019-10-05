@@ -12,5 +12,9 @@ export default class Company extends BaseModel {
 	static get fieldNames() {
 		return ['id', 'name', 'logo'];
 	}
+
+  static get softDelete() {
+    return true;
+  }
 }
 

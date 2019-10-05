@@ -1,14 +1,17 @@
 [
   {
     "code": "GH",
-    "name": "Ghana"
+    "name": "Ghana",
+    "deleted": false
   },
   {
     "code": "NG",
-    "name": "Nigeria"
+    "name": "Nigeria",
+    "deleted": false
   },
   {
     "code": "KN",
-    "name": "Kenya"
+    "name": "Kenya",
+    "deleted": false
   }
 ]

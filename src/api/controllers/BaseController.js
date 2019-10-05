@@ -12,6 +12,8 @@ import Token from '../models/Token';
 import Client from '../models/Client';
 import Currency from '../models/Currency';
 import Company from '../models/Company';
+import Booking from '../models/Booking';
+import UserHelper from '../helpers/UserHelper';
 
 export default class BaseController {
   static get models() {
@@ -25,6 +27,7 @@ export default class BaseController {
       clients: Client,
 			currencies: Currency,
 			companies: Company,
+			bookings: Booking,
     };
   }
 
@@ -130,20 +133,33 @@ export default class BaseController {
 	}
 
   async create(req, res, next) {
-    const tableName = this.tableName();
-    const extraOptions = {};
-    let params = {};
+    const model = this.model();
 
     try {
-      params = new SimpleRelationService().getSimpleRelations(this.model(), req, params);
-      const result = await this.model().create(req.body, params, extraOptions);
+      const resource = this._bodyParams(req);
+      const result = await model.create(resource);
       res.status(201).json(result);
     } catch (err) {
-      console.error(err);
-      res.status(404).json(this._errorMessage(`Could not create an object of type ${tableName}`, 404, err));
+      logger.error(err);
+      res
+        .status(404)
+        .json(this._errorMessage(`Could not create an object of type ${model.name}`, 404, err));
     }
     return next();
   }
+
+  async optionalLogin(req, res, next) {
+		if (!req.headers.authorization) {
+			return;
+		}
+    try {
+      UserHelper.attachUserToRequest(req, res, next, _config.auth0.namespace);
+    } catch (err) {
+      console.error('error on attachUserToRequest');
+      console.error(err);
+    }
+	}
+
 
 	_bodyParams(req) {
 		return req.swagger.params[this.model().name].value;
@@ -170,11 +186,14 @@ export default class BaseController {
     const tableName = this.tableName();
     const identifierValue = this._identifierValue(req.swagger);
     let params = this._identifierParams(identifierValue);
-    const extraOptions = {};
+
+    this._addDestroyEtraOptions(req, params);
+
+    console.log(params);
 
     try {
       params = new SimpleRelationService().getSimpleRelations(this.model(), req, params);
-      const result = await this.model().delete(params, extraOptions);
+      const result = await this.model().delete(params);
       if (result) {
         res.status(200).json(result);
       } else {
@@ -186,6 +205,8 @@ export default class BaseController {
     }
     return next();
   }
+
+  _addDestroyEtraOptions() {}
 
 	async _buildShowResponse(req, resource) {
 		return resource;
@@ -285,6 +306,10 @@ export default class BaseController {
     };
     response[className] = items;
     return response;
+  }
+
+  _addToIndexExtraOptions(req, extraOptions = {}) {
+    return extraOptions;
   }
 
   /**

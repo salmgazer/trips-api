@@ -2,31 +2,37 @@
   {
     "id": 1,
     "name": "Circle",
-    "regionId": 1
+    "regionId": 1,
+    "deleted": false
   },
   {
     "id": 2,
     "name": "Awudome",
-    "regionId": 1
+    "regionId": 1,
+    "deleted": false
   },
   {
     "id": 3,
     "name": "Achimota",
-    "regionId": 1
+    "regionId": 1,
+    "deleted": false
   },
   {
     "id": 4,
     "name": "Tema",
-    "regionId": 1
+    "regionId": 1,
+    "deleted": false
   },
   {
     "id": 5,
     "name": "Lapaz",
-    "regionId": 1
+    "regionId": 1,
+    "deleted": false
   },
   {
     "id": 6,
     "name": "Abuja town",
-    "regionId": 5
+    "regionId": 5,
+    "deleted": false
   }
 ]

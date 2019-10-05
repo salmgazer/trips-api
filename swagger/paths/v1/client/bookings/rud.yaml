@@ -1,0 +1,60 @@
+x-swagger-router-controller: ClientBookingsController
+get:
+  description:  Shows a Booking
+  operationId: show
+  tags:
+    - $ref: ../../../../tags/client.yaml
+  parameters:
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/BookingId"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../swagger_v1.yaml#/definitions/Booking"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml
+  security: [ { rovebusKey: [], adminAuth: [] } ]
+
+put:
+  description: Updates a booking
+  operationId: update
+  tags:
+    - $ref: ../../../../tags/client.yaml
+  parameters:
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/BookingId"
+    - in: body
+      name: Booking
+      schema:
+        $ref: "../../../../swagger_v1.yaml#/definitions/Booking"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../swagger_v1.yaml#/definitions/Booking"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml
+  security: [ { rovebusKey: [], adminAuth: [] } ]
+
+delete:
+  description: Destroys a Booking
+  operationId: destroy
+  tags:
+    - $ref: ../../../../tags/client.yaml
+  parameters:
+    - $ref: "../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../swagger_v1.yaml#/parameters/BookingId"
+  responses:
+    "200":
+      description: Success
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../responses/error.yaml
+  security: [ { rovebusKey: [], adminAuth: [] } ]
+

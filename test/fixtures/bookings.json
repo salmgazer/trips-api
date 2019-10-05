@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "phone": "0543344100",
+    "userEmail": "user1@gmail.com",
+    "tripId": 1,
+    "numberOfSeats": 2,
+    "status": "unpaid",
+    "deleted": false
+  },
+  {
+    "id": 2,
+    "phone": "0543344200",
+    "userEmail": "user2@gmail.com",
+    "tripId": 2,
+    "numberOfSeats": 1,
+    "status": "unpaid",
+    "deleted": false
+  },
+  {
+    "id": 3,
+    "phone": "0543344300",
+    "userEmail": "user3@gmail.com",
+    "tripId": 1,
+    "numberOfSeats": 2,
+    "status": "unpaid",
+    "deleted": false
+  }
+]

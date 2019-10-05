@@ -4,6 +4,7 @@ exports.up = async (knex) => {
     table.string('name').notNullable();
     table.string('countryCode').notNullable();
     table.foreign('countryCode').references('countries.code');
+    table.boolean('deleted').notNullable().defaultTo(false);
     table
       .timestamp('createdAt')
       .notNullable()

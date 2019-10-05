@@ -215,7 +215,7 @@ describe('***** ALL STATION TESTS *****', () => {
 					.expect('Content-Type', /json/)
 					.expect(200);
 
-				expect(response.body).to.eq(1);
+        expect(response.body.deleted).to.eq(true);
 			});
 
 			it('Fails to delete an unexisting Station', async () => {

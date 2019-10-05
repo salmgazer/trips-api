@@ -27,7 +27,8 @@ const resources = {
   stations: 'stations',
   companies: 'companies',
   trips: 'trips',
-  currencies: 'currencies'
+  currencies: 'currencies',
+  bookings: 'bookings'
 };
 
 const apiPaths = {

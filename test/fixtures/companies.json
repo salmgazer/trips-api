@@ -2,16 +2,19 @@
   {
     "id": 1,
     "name": "STC",
-    "logo": "https://stc.com/logo.png"
+    "logo": "https://stc.com/logo.png",
+    "deleted": false
   },
   {
     "id": 2,
     "name": "Royal DVLA",
-    "logo": "https://royaldvla.com/logo.png"
+    "logo": "https://royaldvla.com/logo.png",
+    "deleted": false
   },
   {
     "id": 3,
     "name": "VIP",
-    "logo": "https://vip.com/logo.png"
+    "logo": "https://vip.com/logo.png",
+    "deleted": false
   }
 ]

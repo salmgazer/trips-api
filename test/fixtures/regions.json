@@ -2,26 +2,31 @@
   {
     "id": 1,
     "name": "Greater Accra",
-    "countryCode": "GH"
+    "countryCode": "GH",
+    "deleted": false
   },
   {
     "id": 2,
     "name": "Central",
-    "countryCode": "GH"
+    "countryCode": "GH",
+    "deleted": false
   },
   {
     "id": 3,
     "name": "Western",
-    "countryCode": "GH"
+    "countryCode": "GH",
+    "deleted": false
   },
   {
     "id": 4,
     "name": "Eastern",
-    "countryCode": "GH"
+    "countryCode": "GH",
+    "deleted": false
   },
   {
     "id": 5,
     "name": "Abuja",
-    "countryCode": "NG"
+    "countryCode": "NG",
+    "deleted": false
   }
 ]

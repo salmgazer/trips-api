@@ -3,6 +3,7 @@ exports.up = async (knex) => {
   await knex.schema.createTable('currencies', (table) => {
     table.increments('id');
     table.string('name').notNullable();
+    table.boolean('deleted').notNullable().defaultTo(false);
     table.string('symbol');
     table
       .timestamp('createdAt')

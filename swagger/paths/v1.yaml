@@ -30,6 +30,12 @@
 /admin/trips/{trip_id}:
   $ref: ./v1/admin/trips/rud.yaml
 
+  #Trips CRUD
+/admin/bookings:
+  $ref: ./v1/admin/bookings/index.yaml
+/admin/bookings/{booking_id}:
+  $ref: ./v1/admin/bookings/rud.yaml
+
 #Currencies CRUD
 /admin/currencies:
   $ref: ./v1/admin/currencies/index.yaml
@@ -51,11 +57,16 @@
 /client/countries/{country_code}/regions/{region_id}/towns/{town_id}:
   $ref: ./v1/client/towns/r.yaml
 
-#Client paths
+#Trips paths
 /client/trips:
   $ref: ./v1/client/trips/index.yaml
 /client/trips/{trip_id}:
   $ref: ./v1/client/trips/r.yaml
+
+/client/bookings:
+  $ref: ./v1/client/bookings/index.yaml
+/client/bookings/{booking_id}:
+  $ref: ./v1/client/bookings/rud.yaml
 
 
 

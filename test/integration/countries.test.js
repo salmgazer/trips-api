@@ -93,7 +93,7 @@ describe('***** ALL COUNTRY TESTS *****', () => {
 
 			it('Creates a single Country', async () => {
 				const requestPath = `${apiPaths.v1.adminBasePath}/${resources.countries}`;
-				const newCountry = { code: "SC", name: "Somce country" };
+				const newCountry = { code: "SC", name: "Somce country", deleted: false };
 
 				const response = await request(app)
 					.post(requestPath)
@@ -143,7 +143,7 @@ describe('***** ALL COUNTRY TESTS *****', () => {
           .expect('Content-Type', /json/)
           .expect(200);
 
-        expect(response.body).to.eq(1);
+        expect(response.body.deleted).to.eq(true);
       });
 
       it('Fails to delete an unexisting Country', async () => {

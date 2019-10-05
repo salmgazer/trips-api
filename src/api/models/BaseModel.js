@@ -36,16 +36,28 @@ export default class BaseModel {
   }
 
   /**
-  * Fetches a single row from a table of a model
-  * @param {object} params
-  * @return {object}
-  */
-  static async findOne(params) {
-    let result = this.table.where(params);
+   * Fetches a single row from a table of a model
+   * @param {object} conditions
+   * @return {object}
+   */
+  static async findOne(conditions, extraOptions = {}) {
+    const {client} = extraOptions;
+    const query = this.table.where(conditions);
+    this._addSoftDeletionConditionIfNeeded(query);
 
-    result = await result.first();
-    if (result) return new this(result);
+    if (client) {
+      this._addClientConditions(query);
+    }
+
+    const row = await query.first();
+    if (row) {
+      return this.initializeModel(row);
+    }
     return null;
+  }
+
+  static _addClientConditions(query) {
+    return query;
   }
 
   /**
@@ -68,13 +80,23 @@ export default class BaseModel {
   * @return {json}
   */
   static async filter(offset, limit, options) {
-    const { search, sort, params } = options;
+    const { search, sort, params,client, functionQuery } = options;
 
     const query = this.table.select(this.fieldNamesWithTableName);
 
     if (params) {
       query.where(params);
     }
+
+    if (client) {
+      this._addClientConditions(query);
+    }
+
+    this._addSoftDeletionConditionIfNeeded(query);
+    if (functionQuery) {
+      query.where(functionQuery);
+    }
+
 
     if (search) {
       this._addSearchQuery(query, search);
@@ -474,6 +496,10 @@ export default class BaseModel {
 
 		this.columnRelations.forEach((relationClass) => {
 			const relationTableName = relationClass.tableName;
+
+			console.log("$$$$$$$$$$$$$$$$$$");
+			console.log(relationTableName);
+      console.log("$$$$$$$$$$$$$$$$$$");
 			let {relationName} = relationClass;
 			relationName = !relationName ? pluralize.singular(relationTableName) : relationName;
 

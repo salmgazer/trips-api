@@ -1,6 +1,6 @@
 in: query
 name: leaves_at
 description: Time bus leaves
-required: true
+required: false
 type: string
 format: date-time

@@ -39,4 +39,10 @@ export default class Trip extends BaseModel {
     ];
   }
   */
+
+  // when deleting a trip, you have to alert all passengers
+  // cannot delete a trip once people have starting booking
+  static get softDelete() {
+    return true;
+  }
 }
