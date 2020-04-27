@@ -17,10 +17,10 @@
       //watch: true,
       //ignore_watch : ["node_modules", ".git", ".gitignore", "npm-debug.log"],
       env_local: {
-        PORT: 3040
+        PORT: 3030
       },
       env: {
-        PORT: 8081
+        PORT: 8080
       }
     }
   ]
