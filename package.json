@@ -86,6 +86,7 @@
   },
   "scripts": {
     "build": "npm run clean && babel src --ignore test/monitor --out-dir dist --source-maps",
+    "dev": "nodemon --exec babel-node -- src/server.js",
     "start": "pm2-runtime start ecosystem.json5 --env $NODE_ENV",
     "local": "node_modules/.bin/pm2 startOrRestart ecosystem.json5 && node_modules/.bin/pm2 logs trips-api --lines=20",
     "test": "NODE_ENV=test PORT=3001 mocha --exit --require @babel/register --require ./testHelper.js test/**/*test.js test/**/**/*test.js",
