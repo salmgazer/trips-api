@@ -2,7 +2,7 @@ swagger: "2.0"
 info:
   version: "1.0.0"
   title: Rovebus Trips API
-host: localhost:3030
+host: localhost:8081
 basePath: /v1
 
 schemes:
