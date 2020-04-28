@@ -2,7 +2,7 @@ swagger: "2.0"
 info:
   version: "1.0.0"
   title: Rovebus Trips API
-host: rovebus-trips-api.herokuapp.com
+host: localhost:8080
 basePath: /v1
 
 schemes:
