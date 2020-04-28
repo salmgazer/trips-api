@@ -2,7 +2,7 @@
   "name": "trips-api",
   "version": "0.0.1",
   "description": "Rovebus Trips REST API.",
-  "main": "app.js",
+  "main": "src/server.js",
   "engines": {
     "node": ">=8",
     "npm": "4.2.0"
@@ -87,7 +87,7 @@
   "scripts": {
     "build": "npm run clean && babel src --ignore test/monitor --out-dir dist --source-maps",
     "dev": "nodemon --exec babel-node -- src/server.js",
-    "start": "NODE_ENV=$NODE_ENV node dist/server",
+    "start": "npm run build && node dist/server",
     "local": "node_modules/.bin/pm2 startOrRestart ecosystem.json5 && node_modules/.bin/pm2 logs trips-api --lines=20",
     "test": "NODE_ENV=test PORT=3001 mocha --exit --require @babel/register --require ./testHelper.js test/**/*test.js test/**/**/*test.js",
     "stop": "node_modules/.bin/pm2 kill && node_modules/.bin/pm2 flush && node_modules/.bin/pm2 list",
