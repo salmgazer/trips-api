@@ -1,0 +1,45 @@
+x-swagger-router-controller: AdminCompaniesController
+get:
+  description: Lists Stations
+  operationId: stations
+  tags:
+    - $ref: ../../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/Offset"
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/Limit"
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/Sort"
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/CompanyId"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../../swagger_v1.yaml#/definitions/Station"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]
+
+post:
+  description: Creates a Station
+  operationId: createStation
+  tags:
+    - $ref: ../../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/CompanyId"
+    - in: body
+      name: Station
+      schema:
+        $ref: "../../../../../swagger_v1.yaml#/definitions/Station"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../../swagger_v1.yaml#/definitions/Station"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]

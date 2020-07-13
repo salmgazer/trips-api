@@ -11,6 +11,8 @@ properties:
     type: integer
   stationGps:
     type: string
+  companyId:
+    type: string
   createdAt:
     type: string
     format: date-time

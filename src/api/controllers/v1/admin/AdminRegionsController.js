@@ -16,6 +16,12 @@ class AdminRegionsController extends BaseController {
 
 		return params;
 	}
+
+    _bodyParams(req) {
+        const region = req.swagger.params[this.model().name].value;
+        region.countryCode = req.swagger.params.country_code.value;
+        return region;
+    }
 }
 
 const controller = new AdminRegionsController();

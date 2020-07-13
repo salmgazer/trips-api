@@ -9,13 +9,20 @@ class AdminStationsController extends BaseController {
     return swagger.params.station_id.value;
   }
 
-	_extraFilterParams(req) {
-		const params = {
-			townId: req.swagger.params.town_id.value,
-		};
+    _extraFilterParams(req) {
+      const params = {};
+      if (req.swagger.params.town_id && req.swagger.params.town_id.value) {
+          params.townId = req.swagger.params.town_id.value;
+      }
 
-		return params;
-	}
+      /*
+      if (req.swagger.params.company_id && req.swagger.params.company_id.value) {
+          params.companyId = req.swagger.params.company_id.value;
+      }
+      */
+
+      return params;
+    }
 }
 
 const controller = new AdminStationsController();

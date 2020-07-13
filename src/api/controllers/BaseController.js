@@ -149,16 +149,16 @@ export default class BaseController {
   }
 
   async optionalLogin(req, res, next) {
-		if (!req.headers.authorization) {
-			return;
-		}
-    try {
-      UserHelper.attachUserToRequest(req, res, next, _config.auth0.namespace);
-    } catch (err) {
-      console.error('error on attachUserToRequest');
-      console.error(err);
-    }
+	if (!req.headers.authorization) {
+		return;
 	}
+	try {
+	  UserHelper.attachUserToRequest(req, res, next, _config.auth0.namespace);
+	} catch (err) {
+	  console.error('error on attachUserToRequest');
+	  console.error(err);
+	}
+  }
 
 
 	_bodyParams(req) {
@@ -188,8 +188,6 @@ export default class BaseController {
     let params = this._identifierParams(identifierValue);
 
     this._addDestroyEtraOptions(req, params);
-
-    console.log(params);
 
     try {
       params = new SimpleRelationService().getSimpleRelations(this.model(), req, params);

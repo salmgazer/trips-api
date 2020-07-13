@@ -1,4 +1,5 @@
 import BaseModel from './BaseModel';
+import Town from "./Town";
 
 export default class Station extends BaseModel {
   static get tableName() {
@@ -18,6 +19,10 @@ export default class Station extends BaseModel {
       'createdAt',
       'updatedAt',
     ];
+  }
+
+  static get hasOne() {
+    return [Town];
   }
 
   static get softDelete() {

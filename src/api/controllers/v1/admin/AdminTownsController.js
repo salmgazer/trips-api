@@ -16,6 +16,12 @@ class AdminTownsController extends BaseController {
 
 		return params;
 	}
+
+    _bodyParams(req) {
+        const town = req.swagger.params[this.model().name].value;
+        town.regionId = req.swagger.params.region_id.value;
+        return town;
+    }
 }
 
 const controller = new AdminTownsController();

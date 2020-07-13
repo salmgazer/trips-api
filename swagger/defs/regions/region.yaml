@@ -1,7 +1,6 @@
 type: object
 required:
   - name
-  - countryCode
 properties:
   id:
     type: integer

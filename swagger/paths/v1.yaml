@@ -48,6 +48,11 @@
 /admin/companies/{company_id}:
   $ref: ./v1/admin/companies/rud.yaml
 
+#Company stations CRUD
+/admin/companies/{company_id}/stations:
+  $ref: ./v1/admin/companies/stations/index.yaml
+/admin/companies/{company_id}/stations/{station_id}:
+  $ref: ./v1/admin/companies/stations/rud.yaml
 
 #CLIENT paths
 

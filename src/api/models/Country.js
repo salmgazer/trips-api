@@ -10,7 +10,7 @@ export default class Country extends BaseModel {
   }
 
   static get fieldNames() {
-    return ['code', 'name'];
+    return ['code', 'name', 'createdAt', 'updatedAt'];
   }
 
   static get softDelete() {

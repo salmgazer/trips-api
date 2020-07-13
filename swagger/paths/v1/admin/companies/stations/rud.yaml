@@ -1,0 +1,68 @@
+x-swagger-router-controller: AdminStationsController
+get:
+  description: Shows a Station
+  operationId: show
+  x-resource: Stations
+  x-permission: read
+  tags:
+    - $ref: ../../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/CompanyId"
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/StationId"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../../swagger_v1.yaml#/definitions/Station"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]
+
+put:
+  description: Updates a Station
+  operationId: update
+  x-resource: companiies
+  x-permission: update
+  tags:
+    - $ref: ../../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/CompanyId"
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/StationId"
+    - in: body
+      name: Station
+      schema:
+        $ref: "../../../../../swagger_v1.yaml#/definitions/Station"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "../../../../../swagger_v1.yaml#/definitions/Station"
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]
+
+delete:
+  description: Remove station from company
+  operationId: destroy
+  x-resource: Stations
+  x-permission: delete
+  tags:
+    - $ref: ../../../../../tags/admin.yaml
+  parameters:
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/Authorization"
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/CompanyId"
+    - $ref: "../../../../../swagger_v1.yaml#/parameters/StationId"
+  responses:
+    "200":
+      description: Success
+    default:
+      description: Error
+      schema:
+        $ref: ../../../../../responses/error.yaml
+  security: [ { adminAuth: [] } ]
